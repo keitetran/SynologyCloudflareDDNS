@@ -11,10 +11,29 @@ __LOGFILE__="/var/log/cloudflareddns.log"
 
 # CloudFlare Config
 __RECTYPE__="A"
-__RECID__=""
 __ZONE_ID__=""
 __TTL__="1"
 __PROXY__="true"
+
+# __ZONE_ID__
+__RECID__=""
+case ${__HOSTNAME__} in
+    'nas.keite.xyz')
+        __RECID__='aefaeee4ed0171a40091a78b82201a88'
+        ;;
+    'pihole.keite.xyz')
+        __RECID__='b0acc7da54c15db66e3aa9d19105d352'
+        ;;
+    'pi.keite.xyz')
+        __RECID__='eee0315f18e639e2cac0ced05c4eb312'
+        ;;
+    'router.keite.xyz')
+        __RECID__='8a8a1757c4bdd83a9254b963dbb794c7'
+        ;;
+    *)
+        __RECID__='aefaeee4ed0171a40091a78b82201a88'
+        ;;
+esac
 
 log() {
     __LOGTIME__=$(date +"%b %e %T")
